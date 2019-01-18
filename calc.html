@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="calculator.css">
+    <script>
+
+      //when a number is clicked
+      function enter(num) {
+        if(toClean) {
+          storedNum = document.getElementById("display").value;
+          empty();
+          toClean = 0;
+        }
+        document.getElementById("display").value = document.getElementById("display").value + num
+      }
+
+      function empty() {
+        document.getElementById("display").value = "";
+      }
+
+      function enterSign(s){
+        if(storedNum) {
+          calculate();
+        }
+        else {
+          toClean = 1;
+        }
+        storedSign = s;
+      }
+
+      function calculate() {
+        var toCal = storedNum + storedSign + document.getElementById("display").value;
+        var result = eval(toCal);
+        document.getElementById("display").value = result;
+        storedNum = result;
+        toClean = 1;
+      }
+
+      var toClean = 0;
+      var storedNum = '';
+      var storedSign = '';
+
+      </script>
+    <meta charset="utf-8">
+
+    <title>simple calculator</title>
+  </head>
+  <body>
+    <a href="index.html"to hw02 </a>
+    <div class="bg"> </div>
+    <input id = "display"> </input>
+
+<table>
+    <tr>
+      <td>
+        <button type="button" id="7" onclick="enter(7)">7</button>
+      </td>
+      <td>
+        <button type="button" id="8" onclick="enter(8)">8</button>
+      </td>
+      <td>
+        <button type="button" id="9" onclick="enter(9)">9</button>
+      </td>
+      <td>
+        <button type="button" id="+/=" onclick="enterSign('+')">+/=</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button type="button" id="4" onclick="enter(4)">4</button>
+      </td>
+      <td>
+        <button type="button" id="5" onclick="enter(5)">5</button>
+      </td>
+      <td>
+        <button type="button" id="6" onclick="enter(6)">6</button>
+      </td>
+      <td>
+        <button type="button" id="-" onclick="enterSign('-')">-</button>
+      </td>
+    </tr><tr>
+      <td>
+        <button type="button" id="1" onclick="enter(1)">1</button>
+      </td>
+      <td>
+        <button type="button" id="2" onclick="enter(2)">2</button>
+      </td>
+      <td>
+        <button type="button" id="3" onclick="enter(3)">3</button>
+      </td>
+      <td>
+        <button type="button" id="*" onclick="enterSign('*')">*</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button type="button" id="C" onclick="empty()">C</button>
+      </td>
+      <td>
+        <button type="button" id="0" onclick="enter(0)">0</button>
+      </td>
+      <td>
+        <button type="button" id="." onclick="enter('.')">.</button>
+      </td>
+      <td>
+        <button type="button" id="/" onclick="enterSign('/')" style="width: 200">/</button>
+      </td>
+    </tr>
+      </table>
+
+  </body>
+</html>
